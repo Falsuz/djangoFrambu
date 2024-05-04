@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard examplee</h1>
+    <p>Información de la API:</p>
+    <ul>
+        {% for order in api_data.orders %}
+            <li>{{ order.name }} - {{ order.state }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
