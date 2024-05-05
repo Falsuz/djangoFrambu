@@ -2,7 +2,6 @@ from django.db import models
 import uuid
 
 # Create your models here.
-# creo que esto ya no sirve pq lo hice en la api
 class Product(models.Model):
     name = models.CharField(max_length=60)
     description = models.TextField()
@@ -31,13 +30,14 @@ class Order(models.Model):
         ('ready', 'Ready'),
         ('delivered', 'Delivered'),
     ]
-    name = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     product_type = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, blank=True)
     state = models.CharField(max_length=20, choices=STATE_CHOICES, default='payment_pending')
     created_at = models.DateTimeField(auto_now_add=True)
-    quantity = models.IntegerField()
+    updated_at = models.DateTimeField(auto_now=True)
+    quantityRequested = models.IntegerField()
     paid = models.BooleanField(default=False)
     profits = models.IntegerField()
 
     def __str__(self):
-        return str(self.name)
+        return str(self.id)
