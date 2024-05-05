@@ -31,7 +31,6 @@ class Order(models.Model):
         ('ready', 'Ready'),
         ('delivered', 'Delivered'),
     ]
-
     name = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     product_type = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, blank=True)
     state = models.CharField(max_length=20, choices=STATE_CHOICES, default='payment_pending')

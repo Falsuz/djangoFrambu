@@ -7,6 +7,8 @@ def home(request):
     return render(request, 'index.html', {})
 
 def listProducts(request):
+    # mejorar el html para mostrar el producto, nombre y descripcion
+    # agregarlos manualmente desde admin y lo mismo para las categorías
     products = Product.objects.all()
     return render(request, 'products.html', {'products': products})
 
