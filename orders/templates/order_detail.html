@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Detail</title>
+</head>
+<body>
+    <h1>Order Detail</h1>
+    <p>ID: {{ order.id }}</p>
+    <p>State: {{ order.state }}</p>
+    <p>Created At: {{ order.created_at }}</p>
+    
+    <a href="{% url 'order_update' order.pk %}">Edit</a>
+    <form action="{% url 'order_delete' order.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'order_list' %}">Back to List</a>
+</body>
+</html>
