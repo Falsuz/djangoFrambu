@@ -1,29 +1,11 @@
-from django.shortcuts import render
-from .models import Product, Category, Order
-import requests 
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Order
+from .forms import OrderForm
 
 # Create your views here.
 def home(request):
     return render(request, 'index.html', {})
 
-def listProducts(request):
-    products = Product.objects.all()
-    return render(request, 'products.html', {'products': products})
-
-def listCategories(request):
-    categories = Category.objects.all()
-    return render(request, 'categories.html', {'categories': categories})
-
-# def listOrders(request):
-#     orders = Order.objects.all()
-#     return render(request, 'orders.html', {'orders': orders})
-
-# def name():
-#     pass
-
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Order
-from .forms import OrderForm
 
 def order_list(request):
     orders = Order.objects.all()

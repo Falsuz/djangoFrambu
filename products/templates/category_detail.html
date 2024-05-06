@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Detail</title>
+</head>
+<body>
+    <h1>Category Detail</h1>
+    <p>Name: {{ category.name }}</p>
+    <p>Description: {{ category.description }}</p>
+    <!-- Add more details as needed -->
+    <a href="{% url 'category_update' category.pk %}">Edit</a>
+    <form action="{% url 'category_delete' category.pk %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'category_list' %}">Back to List</a>
+</body>
+</html>
