@@ -6,7 +6,6 @@ from .forms import OrderForm
 def home(request):
     return render(request, 'index.html', {})
 
-
 def order_list(request):
     orders = Order.objects.all()
     return render(request, 'order_list.html', {'orders': orders})
