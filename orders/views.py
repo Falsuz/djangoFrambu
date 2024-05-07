@@ -4,7 +4,7 @@ from .forms import OrderForm
 
 # Create your views here.
 def home(request):
-    return render(request, 'index.html', {})
+    return render(request, 'home.html', {})
 
 def order_list(request):
     orders = Order.objects.all()
