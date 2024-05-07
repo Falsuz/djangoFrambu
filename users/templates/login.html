@@ -16,11 +16,7 @@
             </div>
             <div class="b">
                 <h1>¡Bienvenido al administrador de almacen!</h1>
-                {%if messages%}
-                    {%for i in messages%}
-                        {{messages}}
-                    {%endfor%}
-                {%endif%}
+                
                 <form action="" method="POST">
                     {% csrf_token %}
                     <label for="username">Usuario</label>
@@ -29,6 +25,11 @@
                     <input type="password" id="password" name="password" placeholder="Contraseña" required>
                     <button type="submit">Login</button>
                 </form>
+                {%if messages%}
+                    {%for i in messages%}
+                        <h1>{{i}}</h1>
+                    {%endfor%}
+                {%endif%}
             </div>
         </div>
     </body>
