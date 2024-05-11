@@ -1,3 +1,6 @@
+body{
+  background-color: #f0f0f0;
+}
 .navbar {
     overflow: hidden;
     background-color: #333;
@@ -62,4 +65,4 @@
   }
 
   #logout{
-  margin-left: 800px; }
+  margin-left: 1000px; }

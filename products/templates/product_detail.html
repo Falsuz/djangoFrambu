@@ -1,22 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Product Detail</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/orders.css' %}">
 </head>
 <body>
+    {% include 'navbar.html' %}
     <h1>Product Detail</h1>
-    <p>Name: {{ product.name }}</p>
-    <p>Description: {{ product.description }}</p>
-    <p>Price: {{ product.price }}</p>
-    <p>Stock: {{ product.stock }}</p>
-    <p>Category: {{ product.category }}</p>
-    <!-- Add more details as needed -->
-    <a href="{% url 'product_update' product.pk %}">Edit</a>
-    <form action="{% url 'product_delete' product.pk %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
-    <a href="{% url 'product_list' %}">Back to List</a>
+    <div class="card">
+        <p><b>ID:</b> {{ product.id }}</p>
+        <p><b>Name:</b> {{product.name}}</p>
+        <p><b>Description:</b> {{product.description}}</p>
+        <p><b>Price:</b> ${{ product.price }}</p>
+        <p><b>Stock:</b> {{product.stock}}</p>
+        <p><b>Created:</b> {{product.created_at}}</p>
+        <p><b>Updated:</b> {{product.updated_at}}</p>
+
+        <div class="option">
+            <a href="{% url 'product_list' %}">Return</a>
+        </div>
+    </div>
 </body>
 </html>
